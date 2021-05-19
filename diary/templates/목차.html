@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일기장 목차</title>
+</head>
+<body>
+    <h1>목차 페이지</h1>
+    <form action="작성">
+        <input type="submit" value="일기 쓰기">
+    </form>
+
+    {% for diary in diarys %}
+
+        <h3><a href = "{% url '상세' diary.id %}">제목 : {{diary.title}}</a></h3>
+
+    {% endfor %}
+    <br><br>
+    <a href = "{% url '커버' %}"> 일기장 커버로 돌아가기 </a>
+
+</body>
+</html>
