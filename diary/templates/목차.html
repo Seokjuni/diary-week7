@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+
+{% block content %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,11 @@
     <form action="작성">
         <input type="submit" value="일기 쓰기">
     </form>
+    {% if user.is_authenticated %}
+    <h1>2021년 강석준 일기장</h1>
+    <h3>{{user.username}}님 안녕하세요!</h3>
+    <a href="{% url 'logout' %}">로그아웃</a>
+    {% endif %}
 
     {% for diary in diarys %}
 
@@ -21,4 +27,4 @@
     <a href = "{% url '커버' %}"> 일기장 커버로 돌아가기 </a>
 
 </body>
-</html>
+{% endblock %}

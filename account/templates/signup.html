@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+</head>
+<h1>회원가입 페이지입니다</h1>
+<form action="{% url 'signup' %}" method="post">
+    {%csrf_token%}
+    {{form.as_p}}
+    <button type="submit">회원가입</button>
+    <br>
+    <a href="{% url '커버' %}">홈화면으로</a>
+</form>
+{% endblock %}

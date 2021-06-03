@@ -14,17 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from diary.views import *
+from django.urls import path, include
+from diary.views import 커버
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', 커버, name = '커버' ),
-    path('목차', 목차, name = '목차'),
-    path('작성', 작성, name = '작성'),
-    path('새로작성', 새로작성, name = '새로작성'),
-    path('<str:id>', 상세, name = '상세'),
-    path('수정/<str:id>', 수정, name = '수정'),
-    path('업데이트/<str:id>', 업데이트, name = '업데이트'),
-    path('삭제/<str:id>', 삭제, name = '삭제'),
+    path('diary/', include('diary.urls')),
+    path('account/', include('account.urls')),
 ]
